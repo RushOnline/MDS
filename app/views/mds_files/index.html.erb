@@ -1,0 +1,27 @@
+<h1>Listing mds_files</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mds_files.each do |mds_file| %>
+  <tr>
+    <td><%= mds_file.author_id %></td>
+    <td><%= mds_file.title %></td>
+    <td><%= mds_file.url %></td>
+    <td><%= link_to 'Show', mds_file %></td>
+    <td><%= link_to 'Edit', edit_mds_file_path(mds_file) %></td>
+    <td><%= link_to 'Destroy', mds_file, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mds file', new_mds_file_path %>

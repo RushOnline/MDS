@@ -1,4 +1,8 @@
 MDS::Application.routes.draw do
+  resources :mds_files
+
+  resources :authors
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
