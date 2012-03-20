@@ -1,4 +1,6 @@
 MDS::Application.routes.draw do
+  resources :sources
+
   resources :mds_files
 
   resources :authors

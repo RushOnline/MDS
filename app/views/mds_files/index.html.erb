@@ -2,19 +2,21 @@
 
 <table>
   <tr>
+    <th>Source</th>
+    <th>Date</th>
     <th>Author</th>
     <th>Title</th>
-    <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>D</th>
+    <th colspan="3">Control</th>
   </tr>
 
 <% @mds_files.each do |mds_file| %>
   <tr>
-    <td><%= mds_file.author_id %></td>
-    <td><%= mds_file.title %></td>
-    <td><%= mds_file.url %></td>
+    <td><%= mds_file.source and mds_file.source.description or '-' %></td>
+    <td><%= mds_file.date or '-' %></td>
+    <td><%= mds_file.author.name %></td>
+    <td><a href="<%= mds_file.url %>"><%= mds_file.title %></a></td>
+    <td><a href="http://mds.datagrad.ru<%= mds_file.path %>">D</a></td>
     <td><%= link_to 'Show', mds_file %></td>
     <td><%= link_to 'Edit', edit_mds_file_path(mds_file) %></td>
     <td><%= link_to 'Destroy', mds_file, confirm: 'Are you sure?', method: :delete %></td>
