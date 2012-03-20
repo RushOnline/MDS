@@ -21,6 +21,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+    gem 'rspec-rails'
+end
+
+group :test do
+    gem 'rspec-rails'
+    gem 'webrat'
+end
+
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer'
