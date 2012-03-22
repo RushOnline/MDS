@@ -19,3 +19,7 @@ push_*.dat
 
 *.swp
 *.bak
+
+# Ignore ExtJS files
+/public/ext-*
+/public/extjs

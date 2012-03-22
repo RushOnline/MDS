@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/skozlov/netzke-basepack.git
+  revision: 49b1f02b73642a97e7fa54d326e2a58541269a13
+  specs:
+    netzke-basepack (0.7.4)
+      netzke-core (~> 0.7.4)
+
+GIT
+  remote: git://github.com/skozlov/netzke-core.git
+  revision: e9b5023bc4d6603a744e5ca12e285baf7cdfc0f0
+  branch: rails-upgrade
+  specs:
+    netzke-core (0.7.4)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,6 +147,8 @@ DEPENDENCIES
   execjs
   jquery-rails
   json
+  netzke-basepack!
+  netzke-core!
   pg
   rails (= 3.2.2)
   rspec-rails

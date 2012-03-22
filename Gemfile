@@ -36,6 +36,11 @@ gem 'therubyracer'
 gem 'json'
 gem 'addressable'
 
+#gem 'sencha-model'
+
+gem 'netzke-core', :git => "git://github.com/skozlov/netzke-core.git", :branch => "rails-upgrade"
+gem 'netzke-basepack', :git => "git://github.com/skozlov/netzke-basepack.git"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,9 +1,11 @@
 MDS::Application.routes.draw do
-  resources :sources
 
-  resources :mds_files
+    netzke
+    root :to => "desktop#index"
 
-  resources :authors
+    resources :sources
+    resources :mds_files
+    resources :authors
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
