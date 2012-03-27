@@ -23,11 +23,15 @@ end
 
 group :development do
     gem 'rspec-rails'
+    gem 'cucumber-rails'
+    gem 'cucumber'
 end
 
 group :test do
     gem 'rspec-rails'
     gem 'webrat'
+    gem 'cucumber-rails'
+    gem 'cucumber'
 end
 
 gem 'jquery-rails'

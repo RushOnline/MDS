@@ -5,6 +5,4 @@ class MdsFile < ActiveRecord::Base
     belongs_to :source
 
     validates :title, :length => { :maximum => 250 }
-
-    include Sencha::Model
 end
