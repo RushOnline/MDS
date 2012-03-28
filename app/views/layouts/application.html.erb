@@ -2,14 +2,39 @@
 <html>
 <head>
   <title>Каталог файлов передачи "Модель для сборки"</title>
-  <%= csrf_meta_tag %>
-  <%= netzke_init %>
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="/jplayer/jquery.jplayer.min.js"></script>
+
+  <%= csrf_meta_tag %>
+  <%= netzke_init %>
+
+  <script type="text/javascript">
+//<![CDATA[
+
+      $(document).ready(function(){
+           $("#jpId").jPlayer({
+               ready: function () {
+                   $(this).jPlayer("setMedia", {
+                       mp3: "http://mds.datagrad.ru/download/pionerfm/Mihail_Klikin_-_Nash_Upyr.mp3"
+                   }).jPlayer("play");
+               }
+           });
+      });
+
+    function playThisPodcast(grid, rowIndex, colIndex) {
+        var rec = store.getAt(rowIndex);
+        alert(rec.get('path'));
+    };
+//]]>
+  </script>
+
 </head>
 <body>
 
 <%= yield %>
+
+<div id="jpId"></div>
 
 </body>
 </html>

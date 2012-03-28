@@ -1,6 +1,6 @@
 # User grid with some pre-configured columns
 class PodcastGrid < Netzke::Basepack::GridPanel
-    include Netzke::Basepack::ActionColumn
+#    include Netzke::Basepack::ActionColumn
 
     model "MdsFile"
 
@@ -10,6 +10,26 @@ class PodcastGrid < Netzke::Basepack::GridPanel
     column :title, :flex => 1
     column :url
     column :path
+
+    column :xaction,
+        :xtype => 'actioncolumn',
+        :items => [{
+            :icon       => "#{Netzke::Core.ext_uri}/resources/themes/images/access/dd/drop-yes.gif",
+            :tooltip    => 'Play this podcast',
+            :handler    => <<-JS.l
+                function (grid, rowIndex, colIndex) {
+                    var rec = grid.store.getAt(rowIndex);
+                    // alert(rec.get('path'));
+                    $("#jpId").jPlayer("setMedia", {"mp3": "http://mds.datagrad.ru" + rec.get('path')}).jPlayer("play");
+                }
+                JS
+            }]
+
+=begin
+    def js_component_instance
+        #%{Netzke.page.#{name.jsonify} = Ext.create("#{self.class.js_alias}", #{js_config.to_nifty_json({:methods => :handler})});}
+        "fuck"
+    end
 
     action :playfile do
         {
@@ -21,8 +41,7 @@ class PodcastGrid < Netzke::Basepack::GridPanel
 
     js_method :on_play_file, <<-JS
         function(record){
-            this.getSelectionModel().select(record);
-            alert(record);
+            alert("HERE");
         }
     JS
 
