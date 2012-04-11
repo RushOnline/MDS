@@ -25,6 +25,18 @@ class PodcastGrid < Netzke::Basepack::GridPanel
                 JS
             }]
 
+  # Overriding initComponent
+  js_method :init_component, <<-JS
+    function(){
+      // calling superclass's initComponent
+      #{js_full_class_name}.superclass.initComponent.call(this);
+
+        this.plugins.pop();
+        // this.plugins.push(Ext.create('Ext.grid.plugin.CellEditing', {pluginId: 'celleditor', config: {clicksToEdit: 3}}));
+
+    }
+  JS
+
 =begin
     def js_component_instance
         #%{Netzke.page.#{name.jsonify} = Ext.create("#{self.class.js_alias}", #{js_config.to_nifty_json({:methods => :handler})});}

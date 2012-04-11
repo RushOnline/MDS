@@ -3,18 +3,46 @@
 <head>
   <title>Каталог файлов передачи "Модель для сборки"</title>
 
+  <!--
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="/jplayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="/sm2/script/soundmanager2-nodebug.js"></script>
+  -->
+  <script type='text/javascript' src='/jwplayer/jwplayer.js'></script>
 
   <%= csrf_meta_tag %>
   <%= netzke_init %>
 
+<!--
   <script type="text/javascript">
 //<![CDATA[
 
+    soundManager.url = '/sm2/swf/'; // directory where SM2 .SWFs live
+    soundManager.ontimeout(function(){
+
+              // Hrmm, SM2 could not start. Flash blocker involved? Show an error, etc.?
+            alert("SM2 could not start :(");
+
+        });
+
+    soundManager.onready(function(){
+          // SM2 has loaded - now you can create and play sounds!
+          var mySound = soundManager.createSound({
+                  id: 'aSound',
+                      url: 'http://mds.datagrad.ru/download/pionerfm/Mihail_Klikin_-_Nash_Upyr.mp3'
+                          // onload: myOnloadHandler,
+                          // other options here..
+                        });
+
+            //mySound.play();
+
+        });
+
+/*
       $(document).ready(function(){
            $("#jpId").jPlayer({
                ready: function () {
+                    return;
                    $(this).jPlayer("setMedia", {
                        mp3: "http://mds.datagrad.ru/download/pionerfm/Mihail_Klikin_-_Nash_Upyr.mp3"
                    }).jPlayer("play");
@@ -25,16 +53,17 @@
     function playThisPodcast(grid, rowIndex, colIndex) {
         var rec = store.getAt(rowIndex);
         alert(rec.get('path'));
-    };
+        };
+ */
+
 //]]>
   </script>
+-->
 
 </head>
 <body>
 
 <%= yield %>
-
-<div id="jpId"></div>
 
 </body>
 </html>
