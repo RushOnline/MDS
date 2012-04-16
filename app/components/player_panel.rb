@@ -12,7 +12,7 @@ class PlayerPanel < Netzke::Basepack::BorderLayoutPanel
         :media_player.component(
           :region => :south,
           :title => "Player",
-          :height => 150,
+          :height => 50,
           :split => true
         )
       ]
@@ -39,11 +39,12 @@ class PlayerPanel < Netzke::Basepack::BorderLayoutPanel
         //self.panel.getPlugin('celleditor').cancelEdit();
         // Ext.Msg.alert(record.get('title'));
         var player = this.getChildNetzkeComponent('media_player').player;
-        player.load({file: 'http://mds.datagrad.ru' + record.get('path'), title: record.get('title')});
-        player.play(true);
+        player.dewset(record.get('path'));
+        player.dewplay();
     }
   JS
 
+=begin
   # Event handler
   js_method :on_podcast_selection_changed, <<-JS
     function(self, selected, eOpts) {
@@ -52,6 +53,7 @@ class PlayerPanel < Netzke::Basepack::BorderLayoutPanel
       }
     }
   JS
+=end
 
   component :podcast_grid
   component :media_player

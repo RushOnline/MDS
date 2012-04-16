@@ -8,8 +8,9 @@ class PodcastGrid < Netzke::Basepack::GridPanel
     column :source__description
     column :author__name, :flex => 1
     column :title, :flex => 1
-    column :url
     column :path
+=begin
+    column :url
 
     column :xaction,
         :xtype => 'actioncolumn',
@@ -24,7 +25,7 @@ class PodcastGrid < Netzke::Basepack::GridPanel
                 }
                 JS
             }]
-
+=end
   # Overriding initComponent
   js_method :init_component, <<-JS
     function(){
